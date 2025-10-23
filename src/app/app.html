@@ -1,0 +1,31 @@
+<div class="nav">
+  <ul>
+    @if(user) {
+      <li>
+        <a routerLink="/home" 
+        [class]="{'active': currentRoute() == '/home'}">Home</a>
+      </li>
+    }
+    <li>
+      <a routerLink="/banner" 
+      [class]="{'active': currentRoute() == '/banner'}">Banner</a>
+    </li>
+    @if(user) {
+      <li class="auth-option">
+        <a routerLink="/profile" 
+        [class]="{'active': currentRoute() == '/profile'}">
+          <div class="user-icon"></div>
+        </a>
+      </li>
+    } @else {
+      <li class="auth-option" >
+        <a routerLink="/login" 
+        [class]="{'active': currentRoute() == '/login'}">Login</a>
+      </li>
+    }
+  </ul>
+</div>
+
+<div class="content">
+  <router-outlet />
+</div>
